@@ -10,6 +10,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
+        //$name = Post::latest()->getFirstMedia()->name;
+        // $mediaItems = Post::with('media')->get();
+        // return $media = Post::latest()->getMedia();
         return view('post.index', compact('posts'));
     }
 

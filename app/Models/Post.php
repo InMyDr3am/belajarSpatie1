@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 
+
 class Post extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
@@ -19,4 +20,11 @@ class Post extends Model implements HasMedia
     {
         return $this->morphMany(Media::class, 'model');
     }
+
+    public function items()
+    {
+        return $this->morphMany(Media::class, 'model');
+    }
+
+    
 }

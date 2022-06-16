@@ -14,19 +14,22 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th width="5%">#</th>
+                        <th scope="col"width="5%">#</th>
                         <th width="35%">Title</th>
                         <th width="40%">Desc</th>
-                        <th width="20%">Cover</th>
+                        <th width="20%">Image</th>
+                        <th width="20%">File</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($posts as $key=>$item)
                     <tr>
-                        <td>{{ ++$key }}</td>
+                        <th scope="row">{{ ++$key }}</th>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->desc }}</td>
                         <td><img src="{{$item->getFirstMediaUrl('cover', 'thumb')}}" / width="220px"></td>
+                        <td>
+                            {{$item->getMedia('cover', 'thumb')}}
                     </tr>
                     @endforeach
                 </tbody>
